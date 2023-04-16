@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import api from "steam-js-api";
 
 //const apiKey = process.env.NEXT_PUBLIC_STEAM_API_KEY;
 
@@ -10,7 +9,7 @@ export default function Home({ apiKey }) {
   const [sameGames, setSameGames] = useState([]);
   const [processStatus, setProcessStatus] = useState(0);
 
-  api.setKey(apiKey);
+  //api.setKey(apiKey);
 
   const getUserId = async (username) => {
     const url = `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?key=${apiKey}&vanityurl=${username}&format=json`
@@ -87,8 +86,9 @@ export default function Home({ apiKey }) {
 
   return (
     <>
-      <div>
-        <div>
+      <div className="topDiv">
+        <span>Steam Oyun Karşılaştırma</span>
+        <div className="inputDiv">
           <input
             type="text"
             value={nick1}
@@ -101,7 +101,6 @@ export default function Home({ apiKey }) {
           />
         </div>
         <button onClick={handleClick}>Getir</button>
-        <button onClick={goster}>Göster</button>
       </div>
 
       <div>
@@ -112,11 +111,11 @@ export default function Home({ apiKey }) {
         {processStatus === 4 && (
           <>
             <div>İşlem tamamlandı.</div>
-            <div>
+            <div className="gamesDiv">
               {sameGames.map((e) => (
-                <div key={`'${e.steam_appid}'`}>
+                <div className="game" key={`'${e.steam_appid}'`}>
                   <img src={e.header_image} alt="" />
-                  <div>{e.name}</div>
+                  <span>{e.name}</span>
                 </div>
               ))}
             </div>

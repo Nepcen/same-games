@@ -5,3 +5,76 @@
 body {
   background-color: #2d2d2d;
 }
+
+.topDiv{
+  width: 100%;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.topDiv span{
+  color: #fff;
+  font-size: 2.5rem;
+}
+
+.inputDiv{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.inputDiv input{
+  width: 300px;
+  height: 50px;
+  border-radius: 60px;
+  border: none;
+  padding: 0 20px;
+  font-size: 1.2rem;
+}
+
+.topDiv button{
+  width: 100px;
+  height: 50px;
+  border-radius: 60px;
+  border: none;
+  background-color: #fff;
+  color: #2d2d2d;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.gamesDiv{
+  width: 100%;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.gamesDiv .game{
+  width: 430px;
+  border-radius: 30px;
+  border: none;
+  background-color: #fff;
+  color: #2d2d2d;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.gamesDiv .game span{
+  font-size: 1.5rem;
+}
