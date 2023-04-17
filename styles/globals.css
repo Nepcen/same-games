@@ -8,7 +8,7 @@ body {
 
 .topDiv{
   width: 100%;
-  padding: 50px 0;
+  padding: 100px 0 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -49,6 +49,21 @@ body {
   cursor: pointer;
 }
 
+.bottomDiv{
+  width: 100%;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.bottomDiv > span{
+  color: #fff;
+  font-size: 2.5rem;
+}
+
 .gamesDiv{
   width: 100%;
   padding: 50px 0;
@@ -63,18 +78,33 @@ body {
 .gamesDiv .game{
   width: 430px;
   border-radius: 30px;
-  border: none;
   background-color: #fff;
-  color: #2d2d2d;
-  font-size: 1.2rem;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;  
+  padding: 15px;
+}
+
+.gamesDiv .game a{
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  text-decoration: none;
+  color: #2d2d2d;
+}
+
+.gamesDiv .game img{
+  border-radius: 10px;
+  border-radius: 30px;
 }
 
 .gamesDiv .game span{
   font-size: 1.5rem;
+  text-align: center;
 }

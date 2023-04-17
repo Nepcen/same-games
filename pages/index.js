@@ -1,4 +1,5 @@
 "use client";
+import { sleep } from "@/utils/sleep";
 import { useState } from "react";
 
 //const apiKey = process.env.NEXT_PUBLIC_STEAM_API_KEY;
@@ -12,7 +13,7 @@ export default function Home({ apiKey }) {
   //api.setKey(apiKey);
 
   const getUserId = async (username) => {
-    const url = `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?key=${apiKey}&vanityurl=${username}&format=json`
+    const url = `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?key=${apiKey}&vanityurl=${username}&format=json`;
     try {
       const result = await fetch(url);
       const data = await result.json();
@@ -25,7 +26,7 @@ export default function Home({ apiKey }) {
   };
 
   const getUserGames = async (userId) => {
-    const url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${apiKey}&steamid=${userId}&format=json`
+    const url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${apiKey}&steamid=${userId}&format=json`;
     try {
       const result = await fetch(url);
       const data = await result.json();
@@ -60,12 +61,16 @@ export default function Home({ apiKey }) {
     const userGame2 = (await getUserGames(await getUserId(nick2))).games;
     console.log(userGame2);
 
+    await sleep(500);
+
     setProcessStatus(2);
 
     const matchingGames = userGame1.filter((game1) => {
       return userGame2.some((game2) => game1.appid === game2.appid);
     });
     console.log(matchingGames);
+
+    await sleep(500);
 
     setProcessStatus(3);
     let sameGamesDetails = [];
@@ -75,6 +80,9 @@ export default function Home({ apiKey }) {
         sameGamesDetails.push(gameDetail);
       })
     );
+
+    await sleep(500);
+
     setProcessStatus(4);
     console.log(sameGamesDetails);
     setSameGames(sameGamesDetails);
@@ -103,24 +111,29 @@ export default function Home({ apiKey }) {
         <button onClick={handleClick}>Getir</button>
       </div>
 
-      <div>
-        {processStatus === 0 && <div>İşlem yapmak için butona basınız.</div>}
-        {processStatus === 1 && <div>İşlem yapılıyor...</div>}
-        {processStatus === 2 && <div>İşlem yapılıyor...</div>}
-        {processStatus === 3 && <div>İşlem yapılıyor...</div>}
+      <div className="bottomDiv">
+        {processStatus === 0 && (
+          <span>İşlemleri başlatmak için butona tıklayın.</span>
+        )}
+        {processStatus === 1 && <span>Kullanıcıların Oyunları Alınıyor.</span>}
+        {processStatus === 2 && <span>Oyunlar Filtreleniyor.</span>}
+        {processStatus === 3 && <span>Oyun Detayları Çekiliyor.</span>}
         {processStatus === 4 && (
           <>
-            <div>İşlem tamamlandı.</div>
             <div className="gamesDiv">
-              {sameGames.map((e) => (
-                <div className="game" key={`'${e.steam_appid}'`}>
-                  <img src={e.header_image} alt="" />
-                  <span>{e.name}</span>
-                </div>
-              ))}
+              {sameGames.map(
+                (e) =>
+                  e.name && (
+                    <div className="game" key={`'${e.steam_appid}'`}>
+                      <a target="_blank" href={`https://store.steampowered.com/app/${e.steam_appid}`}>
+                        <img src={e.header_image} alt="" />
+                        <span>{e.name}</span>
+                      </a>
+                    </div>
+                  )
+              )}
             </div>
-            <div>
-            </div>
+            <div></div>
           </>
         )}
       </div>
