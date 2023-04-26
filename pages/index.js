@@ -55,10 +55,35 @@ export default function Home({ apiKey }) {
 
   const handleClick = async () => {
     setProcessStatus(1);
-    const userGame1 = (await getUserGames(await getUserId(nick1))).games;
+    const user1Id = await getUserId(nick1);
+
+    if (!user1Id) {
+      setProcessStatus(444)
+      return
+    }
+
+    const userGame1 = (await getUserGames(user1Id)).games;
+    
+    if(!userGame1) {
+      setProcessStatus(445)
+      return
+    }
     console.log(userGame1);
 
-    const userGame2 = (await getUserGames(await getUserId(nick2))).games;
+    const user2Id = await getUserId(nick2);
+
+    if (!user2Id) {
+      setProcessStatus(446)
+      return
+    }
+
+    const userGame2 = (await getUserGames(user2Id)).games;
+    
+    if(!userGame2) {
+      setProcessStatus(447)
+      return
+    }
+
     console.log(userGame2);
 
     await sleep(500);
@@ -136,6 +161,8 @@ export default function Home({ apiKey }) {
             <div></div>
           </>
         )}
+        {(processStatus === 444 || processStatus === 446) && <span>Kullanıcı Bilgisi Çekilemedi.</span>}
+        {(processStatus === 445 || processStatus === 447) && <span>Kullanıcı Oyunları Çekilemedi.</span>}
       </div>
     </>
   );
