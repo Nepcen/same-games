@@ -6,7 +6,7 @@ body {
   background-color: #2d2d2d;
 }
 
-.topDiv{
+.topDiv {
   width: 100%;
   padding: 100px 0 50px 0;
   display: flex;
@@ -16,12 +16,12 @@ body {
   gap: 10px;
 }
 
-.topDiv span{
+.topDiv span {
   color: #fff;
   font-size: 2.5rem;
 }
 
-.inputDiv{
+.inputDiv {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -29,7 +29,7 @@ body {
   gap: 30px;
 }
 
-.inputDiv input{
+.inputDiv input {
   width: 300px;
   height: 50px;
   border-radius: 60px;
@@ -38,7 +38,7 @@ body {
   font-size: 1.2rem;
 }
 
-.topDiv button{
+.topDiv button {
   width: 100px;
   height: 50px;
   border-radius: 60px;
@@ -49,7 +49,7 @@ body {
   cursor: pointer;
 }
 
-.bottomDiv{
+.bottomDiv {
   width: 100%;
   padding: 50px 0;
   display: flex;
@@ -59,74 +59,38 @@ body {
   gap: 10px;
 }
 
-.bottomDiv > span{
+.bottomDiv > span {
   color: #fff;
   font-size: 2.5rem;
 }
 
-/*
-.gamesDiv{
-  width: 100%;
-  padding: 50px 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.gamesDiv .game{
-  width: 430px;
-  border-radius: 30px;
-  background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;  
-  padding: 15px;
-}
-
-.gamesDiv .game a{
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  text-decoration: none;
-  color: #2d2d2d;
-}
-
-.gamesDiv .game img{
-  border-radius: 10px;
-  border-radius: 30px;
-}
-
-.gamesDiv .game span{
-  font-size: 1.5rem;
-  text-align: center;
-}*/
-
 .gamesDiv {
-  margin: 0;
-  padding: 0;
-  width: 80vw;
-  display: grid;
-  grid-template-columns: repeat(auto-fiil, 250px);
-  grid-auto-rows: 10px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  justify-content: center;
-  background-color: 'black'
+  display: -webkit-box; /* Not needed if autoprefixing */
+  display: -ms-flexbox; /* Not needed if autoprefixing */
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
 }
 
-.gamesDiv .game {
-  margin: 15px 10px;
-  padding: 0;
-  border-radius: 16px;
-  background-color: red;
+.gamesDiv-column {
+  padding-left: 30px; /* gutter size */
+  background-clip: padding-box;
+}
+
+.gamesDiv-column > .game{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  gap: 10px;
+  background: #fff;
+  box-shadow: 0 0 4px #fff;
+  margin-bottom: 20px;
+}
+
+.gamesDiv-column > .game span{
+  padding: 20px 0;
+  font-size: 20px;
+  padding: 5px;
 }

@@ -1,6 +1,7 @@
 "use client";
 import { sleep } from "@/utils/sleep";
 import { useState } from "react";
+import Masonry from "react-masonry-css";
 
 //const apiKey = process.env.NEXT_PUBLIC_STEAM_API_KEY;
 
@@ -58,30 +59,30 @@ export default function Home({ apiKey }) {
     const user1Id = await getUserId(nick1);
 
     if (!user1Id) {
-      setProcessStatus(444)
-      return
+      setProcessStatus(444);
+      return;
     }
 
     const userGame1 = (await getUserGames(user1Id)).games;
-    
-    if(!userGame1) {
-      setProcessStatus(445)
-      return
+
+    if (!userGame1) {
+      setProcessStatus(445);
+      return;
     }
     console.log(userGame1);
 
     const user2Id = await getUserId(nick2);
 
     if (!user2Id) {
-      setProcessStatus(446)
-      return
+      setProcessStatus(446);
+      return;
     }
 
     const userGame2 = (await getUserGames(user2Id)).games;
-    
-    if(!userGame2) {
-      setProcessStatus(447)
-      return
+
+    if (!userGame2) {
+      setProcessStatus(447);
+      return;
     }
 
     console.log(userGame2);
@@ -113,8 +114,11 @@ export default function Home({ apiKey }) {
     setSameGames(sameGamesDetails);
   };
 
-  const goster = () => {
-    console.log(sameGames);
+  const breakpointColumnsObj = {
+    default: 4,
+    1100: 3,
+    700: 2,
+    500: 1,
   };
 
   return (
@@ -144,9 +148,12 @@ export default function Home({ apiKey }) {
         {processStatus === 2 && <span>Oyunlar Filtreleniyor.</span>}
         {processStatus === 3 && <span>Oyun Detayları Çekiliyor.</span>}
         {processStatus === 4 && (
-          <>
-            <div className="gamesDiv">
-              {sameGames.map(
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className="gamesDiv"
+            columnClassName="gamesDiv-column"
+          >
+            {sameGames.map(
                 (e) =>
                   e.name && (
                     <div className="game" key={`'${e.steam_appid}'`}>
@@ -156,13 +163,15 @@ export default function Home({ apiKey }) {
                       </a>
                     </div>
                   )
-              )}
-            </div>
-            <div></div>
-          </>
+              )}            
+          </Masonry>
         )}
-        {(processStatus === 444 || processStatus === 446) && <span>Kullanıcı Bilgisi Çekilemedi.</span>}
-        {(processStatus === 445 || processStatus === 447) && <span>Kullanıcı Oyunları Çekilemedi.</span>}
+        {(processStatus === 444 || processStatus === 446) && (
+          <span>Kullanıcı Bilgisi Çekilemedi.</span>
+        )}
+        {(processStatus === 445 || processStatus === 447) && (
+          <span>Kullanıcı Oyunları Çekilemedi.</span>
+        )}
       </div>
     </>
   );
