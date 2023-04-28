@@ -2,23 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --black: black;
+  --fav: #2d2d2d;
+  --orange: #ff531c;
+}
+
 body {
-  background-color: #2d2d2d;
+  background: var(--orange);
+  color: var(--black);
 }
 
 .topDiv {
+  position: relative;
   width: 100%;
   padding: 100px 0 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 20px;
 }
 
 .topDiv span {
-  color: #fff;
   font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 .inputDiv {
@@ -31,22 +40,34 @@ body {
 
 .inputDiv input {
   width: 300px;
-  height: 50px;
-  border-radius: 60px;
-  border: none;
+  height: 70px;
   padding: 0 20px;
   font-size: 1.2rem;
+  background: #ffffff;
+  border: 6px solid var(--black);
+  box-shadow: 7px 7px 0px var(--black);
 }
 
 .topDiv button {
+  position: absolute;
+  top: 94%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 100px;
   height: 50px;
-  border-radius: 60px;
-  border: none;
-  background-color: #fff;
   color: #2d2d2d;
   font-size: 1.2rem;
+  font-weight: bold;
   cursor: pointer;
+  background: #ffffff;
+  border: 4px solid var(--black);
+  box-shadow: 4px 8px 0px var(--black);
+  transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.topDiv button:active {
+  box-shadow: none;
+  margin: 8px 0 0 4px;
 }
 
 .bottomDiv {
@@ -57,10 +78,10 @@ body {
   align-items: center;
   justify-content: center;
   gap: 10px;
+  text-align: center;
 }
 
 .bottomDiv > span {
-  color: #fff;
   font-size: 2.5rem;
 }
 
@@ -70,6 +91,7 @@ body {
   display: flex;
   margin-left: -30px; /* gutter size offset */
   width: auto;
+  padding: 50px;
 }
 
 .gamesDiv-column {
@@ -77,20 +99,59 @@ body {
   background-clip: padding-box;
 }
 
-.gamesDiv-column > .game{
+.gamesDiv-column > .game {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: left;
   gap: 10px;
-  background: #fff;
-  box-shadow: 0 0 4px #fff;
+  background: #ffffff;
+  border: 6px solid var(--black);
+  box-shadow: 7px 7px 0px var(--black);
   margin-bottom: 20px;
 }
 
-.gamesDiv-column > .game span{
+.gamesDiv-column > .game span {
+  text-align: left;
   padding: 20px 0;
   font-size: 20px;
-  padding: 5px;
+  padding: 20px;
+}
+
+.gamesDiv-column > .game .btns {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 20px;
+}
+
+.gamesDiv-column > .game .btns svg {
+  width: 36px;
+  height: 36px;
+}
+
+@media only screen and (max-width: 768px) {
+  .inputDiv {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .inputDiv input {
+    width: 300px;
+    height: 70px;
+    padding: 0 20px;
+    font-size: 1.2rem;
+    background: #ffffff;
+    border: 6px solid var(--black);
+    box-shadow: 7px 7px 0px var(--black);
+  }
+}
+
+@media only screen and (max-width: 425px){
+  .topDiv span , .bottomDiv > span{
+    font-size: 1.5rem;
+  }
 }
