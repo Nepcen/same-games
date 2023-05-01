@@ -113,7 +113,7 @@ body {
   margin-bottom: 20px;
 }
 
-.gamesDiv-column > .game span {
+.gamesDiv-column > .game > span {
   text-align: left;
   padding: 20px 0;
   font-size: 20px;

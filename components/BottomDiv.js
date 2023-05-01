@@ -48,9 +48,8 @@ const BottomDiv = ({ processStatus, sameGames }) => {
                       >
                         <TfiWorld />
                       </a>
-                      <span className="py-[2px] px-[4px] bg-[#ff531c]">
-                        {e.is_free == true && "Free"}
-                        {e.is_free != true && e?.price_overview?.final_formatted}
+                      <span className="py-3 px-4 bg-[#ff531c] text-white">
+                        {e.is_free ? "Free" : (e.price_overview != null ? e.price_overview.final_formatted : "Out Of Sale")}
                       </span>
                     </div>
                   </div>

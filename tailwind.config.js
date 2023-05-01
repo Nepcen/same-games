@@ -15,6 +15,14 @@ module.exports = {
       boxShadow: {
         "def": "7px 7px 0px rgb(0, 0, 0)",
       },
+      screens: {
+        "3xs": "320px",
+        "2xs": "375px",
+        xs: "425px",
+        "2sm": "550px",
+        "1.5xl": "1440px",
+        "2lg": "2560px",
+      },
     },
   },
   plugins: [],
