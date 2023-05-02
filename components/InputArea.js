@@ -2,7 +2,7 @@ import { Comfortaa } from "next/font/google";
 
 const comfortaa = Comfortaa({ weight: ["400", "700"], subsets: ["latin"] });
 
-const TopDiv = ({nick1, setNick1, nick2, setNick2, handleClick}) => {
+export default function InputArea({nick1, setNick1, nick2, setNick2, handleClick}) {
   return (
     <div className={`topDiv ${comfortaa.className}`}>
         <span>Steam Oyun Karşılaştırma</span>
@@ -22,5 +22,3 @@ const TopDiv = ({nick1, setNick1, nick2, setNick2, handleClick}) => {
       </div>
   )
 }
-
-export default TopDiv

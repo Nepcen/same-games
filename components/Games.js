@@ -5,7 +5,7 @@ import { Comfortaa } from "next/font/google";
 
 const comfortaa = Comfortaa({ weight: ["400", "700"], subsets: ["latin"] });
 
-const BottomDiv = ({ processStatus, sameGames }) => {
+export default function Games ({ processStatus, sameGames }) {
   const breakpointColumnsObj = {
     default: 4,
     1100: 3,
@@ -49,7 +49,7 @@ const BottomDiv = ({ processStatus, sameGames }) => {
                         <TfiWorld />
                       </a>
                       <span className="py-3 px-4 bg-[#ff531c] text-white">
-                        {e.is_free ? "Free" : (e.price_overview != null ? e.price_overview.final_formatted : "Out Of Sale")}
+                        {e.is_free ? "Free" : (e.price_overview != null ? e.price_overview.final_formatted : "N/A")}
                       </span>
                     </div>
                   </div>
@@ -67,5 +67,3 @@ const BottomDiv = ({ processStatus, sameGames }) => {
     </div>
   );
 };
-
-export default BottomDiv;

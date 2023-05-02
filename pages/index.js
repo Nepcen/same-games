@@ -2,17 +2,19 @@
 import { sleep } from "@/utils/sleep";
 import { useState } from "react";
 import TopBar from "@/components/TopBar";
-import TopDiv from "@/components/TopDiv";
-import BottomDiv from "@/components/BottomDiv";
+import InputArea from "@/components/InputArea";
+import Games from "@/components/Games";
 import { getUserId, getUserGames, getGameDetail } from "@/utils/getFuncs";
 
 export default function Home() {
-  const [nick1, setNick1] = useState("Nepcen");
-  const [nick2, setNick2] = useState("SloXen");
+  const [nick1, setNick1] = useState();
+  const [nick2, setNick2] = useState();
   const [sameGames, setSameGames] = useState([]);
   const [processStatus, setProcessStatus] = useState(0);
 
   const handleClick = async () => {
+    if(!nick1 || !nick2) return
+    
     setProcessStatus(1);
     const user1Id = await getUserId(nick1);
 
@@ -90,8 +92,8 @@ export default function Home() {
   return (
     <>
       <TopBar />
-      <TopDiv nick1={nick1} setNick1={setNick1} nick2={nick2} setNick2={setNick2} handleClick={handleClick} />
-      <BottomDiv processStatus={processStatus} sameGames={sameGames}/>
+      <InputArea nick1={nick1} setNick1={setNick1} nick2={nick2} setNick2={setNick2} handleClick={handleClick} />
+      <Games processStatus={processStatus} sameGames={sameGames}/>
     </>
   );
 }
