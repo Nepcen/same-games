@@ -1,8 +1,10 @@
-# Samagame
+# SameGames
 
-Samagame is a web application that allows users to input their Steam usernames and find the common games they have with another user. The app is built using Next.js and utilizes the Steam API.
+Samagames is a web application that allows users to input their Steam usernames and find the common games they have with another user. The app is built using Next.js and utilizes the Steam API.
 
 Made By [Nepcen](https://www.linkedin.com/in/yusufabacik/)
+
+[Live](https://same-games.vercel.app/)
 
 ## Installation
 
