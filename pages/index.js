@@ -1,5 +1,4 @@
 "use client";
-import { sleep } from "@/utils/sleep";
 import { useState } from "react";
 import TopBar from "@/components/TopBar";
 import InputArea from "@/components/InputArea";
@@ -47,7 +46,6 @@ export default function Home() {
 
     console.log(userGame2);
 
-    await sleep(500);
 
     setProcessStatus(2);
 
@@ -56,7 +54,6 @@ export default function Home() {
     });
     console.log(matchingGames);
 
-    await sleep(500);
 
     setProcessStatus(3);
     let sameGamesDetails = [];
@@ -81,7 +78,6 @@ export default function Home() {
       }))
     );
 
-    await sleep(500);
 
     setProcessStatus(4);
     console.log("sıralı");

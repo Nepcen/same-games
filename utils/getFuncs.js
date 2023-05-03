@@ -14,7 +14,7 @@ const getUserId = async (username) => {
 };
 
 const getUserGames = async (userId) => {
-  const url = `http://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${apiKey}&steamid=${userId}&format=json`;
+  const url = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${apiKey}&steamid=${userId}&format=json`;
   try {
     const result = await fetch(url);
     const data = await result.json();
