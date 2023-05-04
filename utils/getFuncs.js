@@ -1,40 +1,37 @@
-const apiKey = process.env.NEXT_PUBLIC_STEAM_API_KEY;
+const fetchURL = process.env.NEXT_PUBLIC_FETCH_DOMAIN;
 
 const getUserId = async (username) => {
-  const url = `https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?key=${apiKey}&vanityurl=${username}&format=json`;
+  const url = `/api/getUserId/${username}`;
   try {
     const result = await fetch(url);
     const data = await result.json();
-    console.log(data);
-    return data.response.steamid;
+    return data.data;
   } catch (error) {
-    console.error(error);
     return null;
   }
 };
 
 const getUserGames = async (userId) => {
-  const url = `https://api.steampowered.com/IPlayerService/GetOwnedGames/v0001/?key=${apiKey}&steamid=${userId}&format=json`;
+  const url = `/api/getUserGames/${userId}`;
   try {
     const result = await fetch(url);
     const data = await result.json();
-    console.log(data.response);
-    return data.response;
+    return data.data;
   } catch (error) {
-    console.error(error);
     return null;
   }
 };
 
 const getGameDetail = async (gameId) => {
-  const url = `https://store.steampowered.com/api/appdetails?appids=${gameId}`;
+  const url = `/api/getGameDetail/${gameId}`;
   try {
     const result = await fetch(url);
     const data = await result.json();
-    if (data[gameId].success) {
-      return data[gameId].data;
+    if(data != 'error'){
+      return data.data;
+    }else{
+      return null;
     }
-    return { appID: gameId };
   } catch (error) {
     console.error(error);
     return null;

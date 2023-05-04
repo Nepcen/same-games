@@ -6,8 +6,8 @@ import Games from "@/components/Games";
 import { getUserId, getUserGames, getGameDetail } from "@/utils/getFuncs";
 
 export default function Home() {
-  const [nick1, setNick1] = useState();
-  const [nick2, setNick2] = useState();
+  const [nick1, setNick1] = useState("");
+  const [nick2, setNick2] = useState("");
   const [sameGames, setSameGames] = useState([]);
   const [processStatus, setProcessStatus] = useState(0);
 
@@ -17,43 +17,39 @@ export default function Home() {
     setProcessStatus(1);
     const user1Id = await getUserId(nick1);
 
-    if (!user1Id) {
+    if (user1Id == 'error' || !user1Id) {
       setProcessStatus(444);
       return;
     }
 
-    const userGame1 = (await getUserGames(user1Id)).games;
+    let userGame1 = (await getUserGames(user1Id));
 
-    if (!userGame1) {
+    if (userGame1 == 'error' || !userGame1) {
       setProcessStatus(445);
       return;
     }
-    console.log(userGame1);
+    userGame1 = userGame1.games
 
     const user2Id = await getUserId(nick2);
 
-    if (!user2Id) {
-      setProcessStatus(446);
+    if (user2Id == 'error' || !user2Id) {
+      setProcessStatus(444);
       return;
     }
 
-    const userGame2 = (await getUserGames(user2Id)).games;
+    let userGame2 = (await getUserGames(user2Id));
 
-    if (!userGame2) {
-      setProcessStatus(447);
+    if (userGame2 == 'error' || !userGame2) {
+      setProcessStatus(445);
       return;
     }
-
-    console.log(userGame2);
-
+    userGame2 = userGame2.games
 
     setProcessStatus(2);
 
     const matchingGames = userGame1.filter((game1) => {
       return userGame2.some((game2) => game1.appid === game2.appid);
     });
-    console.log(matchingGames);
-
 
     setProcessStatus(3);
     let sameGamesDetails = [];
@@ -63,8 +59,7 @@ export default function Home() {
         sameGamesDetails.push(gameDetail);
       })
     );
-    console.log("SGD");
-    console.log(sameGamesDetails);
+    
     let sortedsameGamesDetails;
     await Promise.all(
       (sortedsameGamesDetails = sameGamesDetails.sort((x, y) => {
@@ -78,10 +73,7 @@ export default function Home() {
       }))
     );
 
-
     setProcessStatus(4);
-    console.log("sıralı");
-    console.log(sortedsameGamesDetails);
     setSameGames(sortedsameGamesDetails);
   };
 

@@ -1,8 +1,10 @@
-# Samagame
+# SameGames
 
-Samagame is a web application that allows users to input their Steam usernames and find the common games they have with another user. The app is built using Next.js and utilizes the Steam API.
+Samagames is a web application that allows users to input their Steam usernames and find the common games they have with another user. The app is built using Next.js and utilizes the Steam API.
 
 Made By [Nepcen](https://www.linkedin.com/in/yusufabacik/)
+
+[Live](https://same-games.vercel.app/)
 
 ## Installation
 
@@ -10,7 +12,7 @@ To install and run the app locally, follow these steps:
 
 1. Clone the repository.
 2. Install the dependencies by running `npm install` in the terminal.
-3. Rename `.env.example` file to `.env.local` in the root directory of the project and add your Steam API key to it as `NEXT_PUBLIC_STEAM_API_KEY=<YOUR_STEAM_API_KEY>`.
+3. Rename `.env.example` file to `.env.local` in the root directory of the project and add your Steam API key to it as `STEAM_API_KEY=<YOUR_STEAM_API_KEY>`.
 4. Start the development server with `npm run dev`.
 5. Access the app at `http://localhost:3005`.
 
