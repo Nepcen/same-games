@@ -18,7 +18,7 @@ To install and run the app locally, follow these steps:
 
 ## Usage
 
-To use the app, simply enter two Steam usernames into the input fields and click the "Find Common Games" button. The app will then display a list of games that both users own.
+To use the app, simply enter two Steam usernames into the input fields and click the "Find" button. The app will then display a list of games that both users own.
 
 ## Credits
 

@@ -18,7 +18,7 @@ export default function InputArea({nick1, setNick1, nick2, setNick2, handleClick
             onChange={(e) => setNick2(e.target.value)}
           />
         </div>
-        <button onClick={handleClick}>Getir</button>
+        <button onClick={handleClick}>Find</button>
       </div>
   )
 }
