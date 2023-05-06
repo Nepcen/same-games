@@ -16,11 +16,11 @@ export default function Games ({ processStatus, sameGames }) {
   return (
     <div className={`bottomDiv ${comfortaa.className}`}>
       {processStatus === 0 && (
-        <span>İşlemleri başlatmak için butona tıklayın.</span>
+        <span>Click the button to start the comparison.</span>
       )}
-      {processStatus === 1 && <span>Kullanıcıların Oyunları Alınıyor.</span>}
-      {processStatus === 2 && <span>Oyunlar Filtreleniyor.</span>}
-      {processStatus === 3 && <span>Oyun Detayları Çekiliyor.</span>}
+      {processStatus === 1 && <span>Getting Users' Games.</span>}
+      {processStatus === 2 && <span>Filtering Games.</span>}
+      {processStatus === 3 && <span>Getting Game Details.</span>}
       {processStatus === 4 && (
         <>
           <span>{`${sameGames.length} Oyun Bulundu`}</span>
@@ -59,10 +59,10 @@ export default function Games ({ processStatus, sameGames }) {
         </>
       )}
       {(processStatus === 444 || processStatus === 446) && (
-        <span>Kullanıcı Bilgisi Çekilemedi.</span>
+        <span>Failed to Retrieve User Information.</span>
       )}
       {(processStatus === 445 || processStatus === 447) && (
-        <span>Kullanıcı Oyunları Çekilemedi.</span>
+        <span>Failed to retrieve User Games.</span>
       )}
     </div>
   );

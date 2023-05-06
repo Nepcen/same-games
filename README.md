@@ -4,7 +4,13 @@ Samagames is a web application that allows users to input their Steam usernames 
 
 Made By [Nepcen](https://www.linkedin.com/in/yusufabacik/)
 
-[Live](https://same-games.vercel.app/)
+[Live](https://same-games.vercel.app/) 
+
+## Usage
+
+To use the app, simply enter two Steam usernames into the input fields and click the "Find" button. The app will then display a list of games that both users own.
+
+Note: Do not use the Steam profile name. The Steam API works with usernames that appear in the account's URL.
 
 ## Installation
 
@@ -16,9 +22,15 @@ To install and run the app locally, follow these steps:
 4. Start the development server with `npm run dev`.
 5. Access the app at `http://localhost:3005`.
 
-## Usage
+## Geting Steam API Key
 
-To use the app, simply enter two Steam usernames into the input fields and click the "Find" button. The app will then display a list of games that both users own.
+To get Steam API key, follow these steps:
+
+1. Go to [Steam API Web Page](https://steamcommunity.com/dev)
+2. Click `Go to Registration page` link under the page
+3. Type the domain name for which you will use the api key
+4. Check the checkbox
+5. Click the button
 
 ## Credits
 
