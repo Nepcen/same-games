@@ -4,7 +4,7 @@ Samagames is a web application that allows users to input their Steam usernames 
 
 Made By [Nepcen](https://www.linkedin.com/in/yusufabacik/)
 
-[Live](https://same-games.vercel.app/) 
+[Live](https://samegames.vercel.app/) 
 
 ## Usage
 
